@@ -75,6 +75,8 @@ export default (introspectionResults: IntrospectionResult) => (
       total: response.data.total.aggregate.count
     };
   }
-
+  if (data.data === null) {
+    return { data: null };
+  }
   return { data: sanitize(data.data) };
 };
